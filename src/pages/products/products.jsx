@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Flex, Table } from "antd";
+import { Flex, Table } from "antd";
 import { products } from "../../data/products";
 import { Img } from "../../components/img-card/img";
 const columns = [
@@ -8,30 +8,22 @@ const columns = [
     dataIndex: "img",
   },
   {
-    title: "Name",
-    dataIndex: "name",
+    title: "Title",
+    dataIndex: "title",
   },
   {
     title: "Price",
     dataIndex: "price",
   },
   {
-    title: "Title",
-    dataIndex: "title",
+    title: "Brand",
+    dataIndex: "brand",
   },
 ];
-// const dataSource = Array.from({
-//   length: 46,
-// }).map((_, i) => ({
-//   key: i,
-//   name: `Edward King ${i}`,
-//   age: 32,
-//   address: `London, Park Lane no. ${i}`,
-// }));
 
-const dataSource = products.map(({ img, name, price, title }) => ({
-  name,
-  price: <h3>${price}</h3>,
+const dataSource = products.map(({ img, brand, price, title }) => ({
+  brand,
+  price: <h3>{price} Sum</h3>,
   title: <h4>{title}</h4>,
   img: <Img img={img} />,
 }));
@@ -56,12 +48,8 @@ export const Products = () => {
   };
   const hasSelected = selectedRowKeys.length > 0;
   return (
-    <Flex
-      gap="middle"
-      vertical
-      style={{ height: "100%",}}
-    >
-      <Flex align="center" gap="middle" >
+    <Flex gap="middle" vertical style={{ height: "100%" }}>
+      <Flex align="center" gap="middle">
         {hasSelected ? `Selected ${selectedRowKeys.length} items` : null}
       </Flex>
       <Table

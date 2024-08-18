@@ -1,5 +1,3 @@
-import { nanoid } from "nanoid";
-
 export const products = [
   {
     img: "https://raw.githubusercontent.com/QurbonbekovaSabira/img_folder/main/giperMart/phone/phone2.jpg",
